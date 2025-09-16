@@ -2,7 +2,7 @@
 #include <print>
 #include <pane/pane.hpp>
 
-auto run() -> int {
+auto app() -> int {
     cpp cpp;
 
     std::u8string buffer;
