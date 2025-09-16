@@ -9,9 +9,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(pane)
 
-# add_executable(blank)
-# target_sources(blank PRIVATE "blank/main.cpp")
-
 add_executable(cpp)
 target_sources(cpp PRIVATE "src/main.cpp" "src/app.cpp")
-target_link_libraries(cpp PRIVATE pane::config pane::pane)
+target_link_libraries(cpp PRIVATE pane::pane)
