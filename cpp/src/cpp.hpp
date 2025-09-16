@@ -8,4 +8,4 @@ struct cpp {
     std::string hello { "hello" };
 };
 
-auto run() -> void;
+auto run() -> int;

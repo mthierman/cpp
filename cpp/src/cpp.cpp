@@ -2,7 +2,7 @@
 #include <print>
 #include <pane/pane.hpp>
 
-auto run() -> void {
+auto run() -> int {
     cpp cpp;
 
     std::u8string buffer;
@@ -10,4 +10,6 @@ auto run() -> void {
     if (auto ec { glz::write_json(cpp, buffer) }; !ec) {
         std::println("{}", buffer);
     }
+
+    return 0;
 }
