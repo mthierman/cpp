@@ -2,14 +2,18 @@
 #include <print>
 #include <pane/pane.hpp>
 
+auto cpp::print() -> void {
+    std::u8string buffer;
+
+    if (auto ec { glz::write_json(this, buffer) }; !ec) {
+        std::println("{}", buffer);
+    }
+}
+
 auto app() -> int {
     cpp cpp;
 
-    std::u8string buffer;
-
-    if (auto ec { glz::write_json(cpp, buffer) }; !ec) {
-        std::println("{}", buffer);
-    }
+    cpp.print();
 
     return 0;
 }
