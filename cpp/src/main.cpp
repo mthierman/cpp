@@ -10,7 +10,8 @@ struct my_struct {
 
 auto wmain(int /* argc */, wchar_t* /* argv */[], wchar_t* /* envp */[]) -> int {
     my_struct my_struct;
-    auto buffer { glz::write_json(my_struct).value_or("error") };
+    std::u8string buffer;
+    auto ec { glz::write_json(my_struct, buffer) };
     std::println("{}", buffer);
 
     return 0;
