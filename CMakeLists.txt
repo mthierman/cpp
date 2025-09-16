@@ -4,6 +4,7 @@ project(cpp)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/libs")
 
+find_package(Modules)
 find_package(Pane)
 
 add_subdirectory("cpp")
