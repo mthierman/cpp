@@ -3,12 +3,10 @@ project(cpp)
 
 include(FetchContent)
 FetchContent_Declare(
-    cmake-modules
-    GIT_REPOSITORY "https://github.com/mthierman/cmake-modules.git"
+    pane
+    GIT_REPOSITORY "https://github.com/mthierman/pane.git"
     GIT_TAG "main"
 )
-FetchContent_MakeAvailable(cmake-modules)
-
-find_package(Pane)
+FetchContent_MakeAvailable(pane)
 
 add_subdirectory("cpp")
