@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.31)
 
 project(cv)
 
+include(GNUInstallDirs)
 include(FetchContent)
 
 FetchContent_Declare(pane GIT_REPOSITORY https://github.com/mthierman/pane.git GIT_TAG main)
@@ -13,3 +14,5 @@ add_executable(cv)
 target_sources(cv PRIVATE src/main.cpp src/app.cpp)
 
 target_link_libraries(cv PRIVATE pane::pane)
+
+install(TARGETS cv RUNTIME DESTINATION .)
