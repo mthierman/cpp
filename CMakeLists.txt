@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.31)
 
-project(cpp)
+project(cv)
 
 include(FetchContent)
 
@@ -8,4 +8,8 @@ FetchContent_Declare(pane GIT_REPOSITORY https://github.com/mthierman/pane.git G
 
 FetchContent_MakeAvailable(pane)
 
-add_subdirectory(cpp)
+add_executable(cv)
+
+target_sources(cv PRIVATE src/main.cpp src/app.cpp)
+
+target_link_libraries(cv PRIVATE pane::pane)
