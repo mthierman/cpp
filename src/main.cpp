@@ -1,7 +1,8 @@
+#include <project.hpp>
+#include <print>
+#include <ranges>
 #include <argz/argz.hpp>
 #include <pane/pane.hpp>
-#include <ranges>
-#include <project.hpp>
 
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
     auto args { pane::system::command_line_arguments() };
@@ -28,7 +29,7 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
     try {
         argz::parse(about, opts, argv.size(), argv.data());
     } catch (const std::exception& e) {
-        std::cerr << e.what() << '\n';
+        std::println("{}", e.what());
     }
 
     return 0;
