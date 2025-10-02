@@ -23,7 +23,7 @@ add_executable(cv)
 
 target_sources(
     cv
-    PRIVATE src/main.cpp src/app.cpp
+    PRIVATE src/cli11.cpp src/app.cpp
     PRIVATE FILE_SET HEADERS BASE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/generated
 )
 
