@@ -4,6 +4,8 @@
 #include <argz/argz.hpp>
 #include <pane/pane.hpp>
 
+auto init() -> void { std::println("command is init"); }
+
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
     auto args { pane::system::command_line_arguments() };
 
@@ -31,10 +33,6 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
         std::println("{}", e.what());
     }
 
-    // if (config) {
-    //     std::println("{}", *config);
-    // }
-
     if (argv.size() < 2) {
         return 0;
     }
@@ -42,7 +40,7 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
     std::string_view command { argv.at(1) };
 
     if (command == "init") {
-        std::println("command is: init");
+        init();
     }
 
     return 0;
