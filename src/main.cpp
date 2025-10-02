@@ -1,4 +1,3 @@
-// #include "app.hpp"
 #include <argz/argz.hpp>
 #include <pane/pane.hpp>
 #include <ranges>
@@ -12,7 +11,6 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
         return reinterpret_cast<const char*>(s.c_str());
     }));
 
-    // constexpr std::string_view version = "1.2.3";
     argz::about about { reinterpret_cast<const char*>(PROJECT_DESCRIPTION.data()),
                         reinterpret_cast<const char*>(PROJECT_VERSION.data()) };
 
