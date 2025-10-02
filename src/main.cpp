@@ -26,7 +26,7 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
                          { { "number_opt" }, number_opt, "input an int" } };
 
     try {
-        argz::parse(about, opts, argv_ptrs.size(), argv_ptrs.data());
+        argz::parse(about, opts, argv.size(), argv.data());
     } catch (const std::exception& e) {
         std::cerr << e.what() << '\n';
     }
