@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <string_view>
 
 constexpr std::u8string_view PROJECT_VERSION = u8"@PROJECT_VERSION@";
 constexpr std::u8string_view PROJECT_DESCRIPTION = u8"@PROJECT_DESCRIPTION@";
