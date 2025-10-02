@@ -29,6 +29,6 @@ target_sources(
 
 # target_include_directories(cv PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 
-target_link_libraries(cv PRIVATE pane::pane)
+target_link_libraries(cv PRIVATE pane::pane CLI11::CLI11)
 
 install(TARGETS cv RUNTIME DESTINATION .)
