@@ -4,6 +4,8 @@
 #include <argz/argz.hpp>
 #include <pane/pane.hpp>
 
+auto print_version() -> void { std::println("0.0.0"); }
+
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
     auto args { pane::system::command_line_arguments() };
 
@@ -12,8 +14,18 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
         return reinterpret_cast<const char*>(s.c_str());
     }));
 
-    argz::about about { reinterpret_cast<const char*>(PROJECT_DESCRIPTION.data()),
-                        reinterpret_cast<const char*>(PROJECT_VERSION.data()) };
+    // argz::about about { reinterpret_cast<const char*>(PROJECT_DESCRIPTION.data()),
+    //                     reinterpret_cast<const char*>(PROJECT_VERSION.data()) };
+    std::string description { std::string("\x1b[32m")
+                              + reinterpret_cast<const char*>(PROJECT_DESCRIPTION.data())
+                              + "\x1b[0m" };
+
+    std::string version { std::string("\x1b[32m")
+                          + reinterpret_cast<const char*>(PROJECT_VERSION.data()) + "\x1b[0m" };
+
+    argz::about about;
+    about.description = description;
+    about.version = version;
 
     std::string input {};
     std::string study {};
