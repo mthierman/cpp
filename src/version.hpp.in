@@ -2,3 +2,4 @@
 #include <string>
 
 constexpr std::u8string_view PROJECT_VERSION = u8"@PROJECT_VERSION@";
+constexpr std::u8string_view PROJECT_DESCRIPTION = u8"@PROJECT_DESCRIPTION@";

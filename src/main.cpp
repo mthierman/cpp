@@ -25,7 +25,7 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
     }));
 
     // constexpr std::string_view version = "1.2.3";
-    argz::about about { "My program description",
+    argz::about about { reinterpret_cast<const char*>(PROJECT_DESCRIPTION.data()),
                         reinterpret_cast<const char*>(PROJECT_VERSION.data()) };
 
     std::string input {};
