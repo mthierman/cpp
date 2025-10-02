@@ -17,9 +17,13 @@ FetchContent_MakeAvailable(pane)
 
 add_executable(cv)
 
-target_sources(cv PRIVATE src/main.cpp src/app.cpp)
+target_sources(
+    cv
+    PRIVATE src/main.cpp src/app.cpp
+    PRIVATE FILE_SET HEADERS BASE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/generated
+)
 
-target_include_directories(cv PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
+# target_include_directories(cv PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 
 target_link_libraries(cv PRIVATE pane::pane)
 

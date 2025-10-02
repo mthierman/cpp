@@ -2,6 +2,7 @@
 #include <argz/argz.hpp>
 #include <pane/pane.hpp>
 #include <ranges>
+#include <version.hpp>
 
 // auto wmain(int /* argc */, wchar_t* /* argv */[], wchar_t* /* envp */[]) -> int { return app(); }
 
@@ -23,8 +24,9 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
         return reinterpret_cast<const char*>(s.c_str());
     }));
 
-    constexpr std::string_view version = "1.2.3";
-    argz::about about { "My program description", version };
+    // constexpr std::string_view version = "1.2.3";
+    argz::about about { "My program description",
+                        reinterpret_cast<const char*>(PROJECT_VERSION.data()) };
 
     std::string input {};
     std::string study {};
