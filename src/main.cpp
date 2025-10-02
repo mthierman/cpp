@@ -4,22 +4,10 @@
 #include <ranges>
 #include <project.hpp>
 
-// auto wmain(int /* argc */, wchar_t* /* argv */[], wchar_t* /* envp */[]) -> int { return app(); }
-
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
     auto args { pane::system::command_line_arguments() };
 
-    // First method:
-    //
-    // std::vector<const char*> argv_ptrs;
-    // argv_ptrs.reserve(argc);
-
-    // for (auto& s : args) {
-    //     argv_ptrs.push_back(reinterpret_cast<const char*>(s.c_str()));
-    // }
-
-    // Second method:
-    auto argv_ptrs = std::ranges::to<std::vector<const char*>>(
+    auto argv = std::ranges::to<std::vector<const char*>>(
         args | std::views::transform([](const std::u8string& s) {
         return reinterpret_cast<const char*>(s.c_str());
     }));
