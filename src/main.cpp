@@ -4,7 +4,15 @@
 #include <argz/argz.hpp>
 #include <pane/pane.hpp>
 
-auto init() -> void { std::println("command is init"); }
+auto init(argz::about& about, argz::options& opts, std::vector<const char*>& argv) -> void {
+    std::println("command is init");
+
+    try {
+        argz::parse(about, opts, argv.size() - 1, argv.data() + 1);
+    } catch (const std::exception& e) {
+        std::println("{}", e.what());
+    }
+}
 
 auto install() -> void { std::println("command is install"); }
 
@@ -29,11 +37,11 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
 
     argz::options opts { { { "config", 'c' }, config, "config file" } };
 
-    try {
-        argz::parse(about, opts, argv.size(), argv.data());
-    } catch (const std::exception& e) {
-        std::println("{}", e.what());
-    }
+    // try {
+    //     argz::parse(about, opts, argv.size(), argv.data());
+    // } catch (const std::exception& e) {
+    //     std::println("{}", e.what());
+    // }
 
     if (argv.size() < 2) {
         return 0;
@@ -42,7 +50,7 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
     std::string_view command { argv.at(1) };
 
     if (command == "init") {
-        init();
+        init(about, opts, argv);
     } else if (command == "install") {
         install();
     } else {
