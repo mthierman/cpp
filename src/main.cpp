@@ -1,14 +1,17 @@
 #include "color.hpp"
 #include <project.hpp>
 #include <print>
-#include <ranges>
+// #include <ranges>
 #include <argz/argz.hpp>
 #include <pane/pane.hpp>
 
+struct command {
+    std::string_view cmd;
+    argz::options opts;
+};
+
 auto help(const argz::about& about, const argz::options& opts) -> void {
     std::string indent { "        " };
-
-    std::println("{}", about.description);
 
     std::println();
     std::print("{}", paint<color::bright_blue, style::bold>("Usage: "));
@@ -56,23 +59,25 @@ auto init(argz::about& about, argz::options& opts, std::vector<const char*>& arg
 auto install() -> void { std::println("command is install"); }
 
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
-    argz::about about { reinterpret_cast<const char*>(PROJECT_DESCRIPTION.data()),
-                        reinterpret_cast<const char*>(PROJECT_VERSION.data()) };
+    // argz::about about { reinterpret_cast<const char*>(PROJECT_DESCRIPTION.data()),
+    //                     reinterpret_cast<const char*>(PROJECT_VERSION.data()) };
+
     std::optional<std::string> config { std::nullopt };
     argz::options opts { { { "config", 'c' }, config, "config file" } };
 
     auto args { pane::system::command_line_arguments() };
 
-    std::println("args.size(): {}", args.size());
-
-    if (args.size() == 1) {
-        help(about, opts);
-    }
-
     // auto argv = std::ranges::to<std::vector<const char*>>(
     //     args | std::views::transform([](const std::u8string& s) {
     //     return reinterpret_cast<const char*>(s.c_str());
     // }));
+
+    if (args.size() == 1) {
+        std::println("{}", PROJECT_DESCRIPTION);
+        // help(about, opts);
+    }
+
+    std::println("args.size(): {}", args.size());
 
     // try {
     //     argz::parse(about, opts, argv.size(), argv.data());
