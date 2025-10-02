@@ -6,6 +6,8 @@
 
 auto init() -> void { std::println("command is init"); }
 
+auto install() -> void { std::println("command is install"); }
+
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
     auto args { pane::system::command_line_arguments() };
 
@@ -41,6 +43,11 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
 
     if (command == "init") {
         init();
+    } else if (command == "install") {
+        install();
+    } else {
+        std::println("unknown command: {}", command);
+        return 1;
     }
 
     return 0;
