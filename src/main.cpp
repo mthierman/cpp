@@ -7,6 +7,12 @@
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
     auto args { pane::system::command_line_arguments() };
 
+    std::println("args.size(): {}", args.size());
+
+    // if (args.size() < 2) {
+    //     std::println("No command given");
+    // }
+
     auto argv = std::ranges::to<std::vector<const char*>>(
         args | std::views::transform([](const std::u8string& s) {
         return reinterpret_cast<const char*>(s.c_str());
@@ -25,8 +31,18 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
         std::println("{}", e.what());
     }
 
-    if (config) {
-        std::println("{}", *config);
+    // if (config) {
+    //     std::println("{}", *config);
+    // }
+
+    if (argv.size() < 2) {
+        return 0;
+    }
+
+    std::string_view command { argv.at(1) };
+
+    if (command == "init") {
+        std::println("command is: init");
     }
 
     return 0;

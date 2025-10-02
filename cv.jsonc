@@ -1,5 +1,7 @@
 {
     "packages": [
+        { "source": "gh", "repo": "stephenberry/glaze", "tag": "main" },
+        "gh:stephenberry/glaze@main",
         "gh:nlohmann/json@develop",
         "gh:nlohmann/json@v3.11.3/include.zip",
         "gh:ada-url/ada@main",
