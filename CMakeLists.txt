@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.31)
 project(cv VERSION 0.0.0 DESCRIPTION "C++ package manager")
 
 configure_file(
-    ${CMAKE_CURRENT_LIST_DIR}/src/version.hpp.in
-    ${CMAKE_CURRENT_BINARY_DIR}/generated/version.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/project.hpp.in
+    ${CMAKE_CURRENT_BINARY_DIR}/generated/project.hpp
     @ONLY
 )
 

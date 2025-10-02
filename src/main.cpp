@@ -2,7 +2,7 @@
 #include <argz/argz.hpp>
 #include <pane/pane.hpp>
 #include <ranges>
-#include <version.hpp>
+#include <project.hpp>
 
 // auto wmain(int /* argc */, wchar_t* /* argv */[], wchar_t* /* envp */[]) -> int { return app(); }
 
