@@ -1,14 +1,14 @@
 #pragma once
 
-#include <string>
+namespace app {
+auto run() -> int;
+} // namespace app
 
-struct cpp {
-    int i { 22 };
-    double d { 3.14 };
-    std::string hello { "hello" };
-    std::string test { "test" };
+// struct cpp {
+//     int i { 22 };
+//     double d { 3.14 };
+//     std::string hello { "hello" };
+//     std::string test { "test" };
 
-    auto print() -> void;
-};
-
-auto app() -> int;
+//     auto print() -> void;
+// };
