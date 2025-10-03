@@ -58,8 +58,6 @@ inline constexpr const char* get_color(color c) {
             return "\x1b[96m";
         case color::bright_white:
             return "\x1b[97m";
-        default:
-            return "\x1b[0m";
     }
 }
 
@@ -81,8 +79,6 @@ inline constexpr const char* get_style(style s) {
             return "\x1b[7m";
         case style::hidden:
             return "\x1b[8m";
-        default:
-            return "\x1b[0m";
     }
 }
 
