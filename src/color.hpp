@@ -22,7 +22,7 @@ enum class color {
     bright_white
 };
 
-inline constexpr const char8_t* get_color(color c) {
+constexpr auto get_color(color c) -> const char8_t* {
     switch (c) {
         case color::none:
             return u8"\x1b[0m";
@@ -65,7 +65,7 @@ inline constexpr const char8_t* get_color(color c) {
 
 enum class style { none, bold, dim, italic, underline, inverse, hidden };
 
-inline constexpr const char8_t* get_style(style s) {
+constexpr auto get_style(style s) -> const char8_t* {
     switch (s) {
         case style::none:
             return u8"\x1b[0m";
