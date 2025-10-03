@@ -3,10 +3,6 @@
 #include <print>
 #include <pane/pane.hpp>
 
-// https://clig.dev/
-
-using namespace std::string_view_literals;
-
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
     auto argv { pane::system::command_line_arguments() };
     std::println("{}", u8"https://clig.dev/");
