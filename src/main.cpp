@@ -3,7 +3,7 @@
 #include <print>
 #include <pane/pane.hpp>
 
-auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
+auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp[] */) -> int {
     auto argv { pane::system::command_line_arguments() };
     std::println("{}", u8"https://clig.dev/");
 
