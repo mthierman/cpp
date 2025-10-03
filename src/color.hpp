@@ -22,7 +22,7 @@ enum class color {
     bright_white
 };
 
-constexpr auto get_color(color c) -> const char8_t* {
+constexpr auto get_color(color c) -> std::u8string_view {
     switch (c) {
         case color::none:
             return u8"\x1b[0m";
@@ -65,7 +65,7 @@ constexpr auto get_color(color c) -> const char8_t* {
 
 enum class style { none, bold, dim, italic, underline, inverse, hidden };
 
-constexpr auto get_style(style s) -> const char8_t* {
+constexpr auto get_style(style s) -> std::u8string_view {
     switch (s) {
         case style::none:
             return u8"\x1b[0m";
@@ -87,15 +87,16 @@ constexpr auto get_style(style s) -> const char8_t* {
 }
 
 template <color c = color::none, style... styles>
-inline std::u8string paint(std::u8string_view text) {
+auto paint(std::u8string_view text) -> std::u8string {
     std::u8string result;
-    ((result += get_style(styles)), ...);
-    result += get_color(c);
-    result += std::u8string { text } + get_style(style::none);
+    ((result.append(get_style(styles))), ...);
+    result.append(get_color(c));
+    result.append(text);
+    result.append(get_style(style::none));
 
     return result;
 }
 
-template <style... styles> inline auto paint(std::u8string_view text) -> std::u8string {
+template <style... styles> auto paint(std::u8string_view text) -> std::u8string {
     return paint<color::none, styles...>(text);
 }
