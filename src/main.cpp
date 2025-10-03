@@ -10,8 +10,6 @@ using namespace std::string_view_literals;
 auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int {
     auto argv { pane::system::command_line_arguments() };
     std::println("argv.size(): {}", argv.size());
-    // std::println("clig.dev: {}", u8"https://clig.dev/");
-    std::println("{}", "test");
 
     if (argv.size() == 1) {
         std::println("{}", PROJECT_DESCRIPTION);
@@ -20,9 +18,6 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
         std::println("{}", paint<color::bright_cyan>(u8"cv.exe [OPTIONS] <COMMAND>"));
         std::println();
     }
-
-    // std::optional<std::u8string> config { std::nullopt };
-    // std::println("args.size(): {}", args.size());
 
     return 0;
 }
