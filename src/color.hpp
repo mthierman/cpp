@@ -58,6 +58,8 @@ inline constexpr const char8_t* get_color(color c) {
             return u8"\x1b[96m";
         case color::bright_white:
             return u8"\x1b[97m";
+        default:
+            return u8"\x1b[0m";
     }
 }
 
@@ -79,6 +81,8 @@ inline constexpr const char8_t* get_style(style s) {
             return u8"\x1b[7m";
         case style::hidden:
             return u8"\x1b[8m";
+        default:
+            return u8"\x1b[0m";
     }
 }
 
