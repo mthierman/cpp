@@ -6,7 +6,7 @@
 
 namespace app {
 auto run() -> int {
-    auto argv { pane::system::command_line_arguments() };
+    auto argv { pane::system::get_argv_u8() };
     std::println("{}", u8"https://clig.dev/");
 
     for (auto [idx, arg] : std::views::enumerate(argv) | std::views::as_const) {
