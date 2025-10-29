@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version-file: '.node-version'
+          node-version-file: ".node-version"
 
       - uses: actions/setup-python@v6
 
@@ -35,7 +35,7 @@ jobs:
         with:
           path: |
             "${{ github.workspace }}/build-release/_deps"
-          key: "deps-${{ hashFiles('libs/CMakeLists.txt') }}"
+          key: "deps-${{ hashFiles('CMakeLists.txt') }}"
 
       - run: |
           pnpm cmake-release
