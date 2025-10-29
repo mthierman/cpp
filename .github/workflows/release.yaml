@@ -18,6 +18,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: ".node-version"
+          cache: pnpm
 
       - uses: actions/setup-python@v6
 
@@ -25,6 +26,7 @@ jobs:
 
       - run: |
           node --version
+          (Get-Command node).path
           pnpm --version
           uv --version
           uv tool install gersemi
