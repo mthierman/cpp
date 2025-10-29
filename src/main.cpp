@@ -65,7 +65,7 @@ auto wmain(int /* argc */, wchar_t* /* argv[] */, wchar_t* /* envp */[]) -> int 
     std::optional<std::string> config { std::nullopt };
     argz::options opts { { { "config", 'c' }, config, "config file" } };
 
-    auto args { pane::system::command_line_arguments() };
+    auto args { pane::system::get_argv_u8() };
 
     // auto argv = std::ranges::to<std::vector<const char*>>(
     //     args | std::views::transform([](const std::u8string& s) {
