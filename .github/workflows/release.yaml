@@ -16,21 +16,17 @@ jobs:
           run_install: true
 
       - uses: actions/setup-node@v6
-        with:
-          node-version: "25"
-          cache: "pnpm"
 
       - uses: actions/setup-python@v6
-        with:
-          python-version: "3.14"
 
       - uses: astral-sh/setup-uv@v7
-        with:
-          python-version: "3.14"
-          enable-cache: true
 
       - run: |
+          node --version
+          pnpm --version
+          uv --version
           uv tool install gersemi
+          gersemi --version
 
       - uses: actions/cache@v4
         id: deps
