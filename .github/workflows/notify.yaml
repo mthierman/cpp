@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 5
+
+      - env:
+          GH_TOKEN: ${{ secrets.WEB }}
+        uses: mthierman/github-actions/notify-web@main
+        with:
+          event_type: "cv-release"
