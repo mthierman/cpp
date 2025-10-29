@@ -32,7 +32,7 @@ jobs:
         id: deps
         with:
           path: |
-            "${{ github.workspace }}/build/_deps"
+            "${{ github.workspace }}/build-release/_deps"
           key: "deps-${{ hashFiles('libs/CMakeLists.txt') }}"
 
       - run: |
