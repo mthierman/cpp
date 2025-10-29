@@ -1,11 +1,27 @@
 {
-    "name": "cpp",
-    "version": "0.0.0",
-    "type": "module",
     "private": true,
+    "author": "mthierman",
+    "name": "cv",
+    "version": "0.0.0",
+    "description": "C++ package manager",
+    "symbol": "🕸️",
+    "homepage": "https://github.com/mthierman/cv",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mthierman/cv.git"
+    },
+    "packageManager": "pnpm@10.19.0",
+    "type": "module",
+    "scripts": {
+        "cmake-debug": "cmake --preset debug && cmake --build --preset debug",
+        "cmake-release": "cmake --preset release && cmake --build --preset release"
+    },
     "devDependencies": {
-        "@types/node": "^24.5.0",
+        "@js-temporal/polyfill": "^0.5.1",
+        "@types/node": "^24.9.2",
+        "octokit": "^5.0.4",
         "prettier": "^3.6.2",
-        "typescript": "^5.9.2"
+        "typescript": "^5.9.3",
+        "vite": "^7.1.12"
     }
 }
