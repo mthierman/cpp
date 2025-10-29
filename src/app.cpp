@@ -1,5 +1,5 @@
-#include "app.hpp"
-#include "color.hpp"
+#include "include/app.hpp"
+#include "include/color.hpp"
 #include <pane/pane.hpp>
 #include <print>
 
