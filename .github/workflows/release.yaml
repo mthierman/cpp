@@ -25,12 +25,7 @@ jobs:
       - uses: astral-sh/setup-uv@v7
 
       - run: |
-          node --version
-          (Get-Command node).path
-          pnpm --version
-          uv --version
           uv tool install gersemi
-          gersemi --version
 
       - uses: actions/cache@v4
         id: deps
@@ -40,7 +35,10 @@ jobs:
           key: "deps-${{ hashFiles('CMakeLists.txt') }}"
 
       - run: |
-          pnpm cmake-release
+          cmake --preset release
+
+      - run: |
+          cmake --build --preset release
 
   notify:
     needs: release
