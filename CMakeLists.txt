@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.31)
 project(cv VERSION 0.0.0 DESCRIPTION "C++ package manager")
 add_executable(cv)
-target_sources(cv PRIVATE src/main.cpp src/app.cpp)
+target_sources(cv PRIVATE src/main.cpp)
 target_compile_features(cv PRIVATE c_std_17 cxx_std_23)
 target_compile_definitions(cv PRIVATE UNICODE WIN32_LEAN_AND_MEAN NOMINMAX GDIPVER=0x0110)
 target_compile_options(
