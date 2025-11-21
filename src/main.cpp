@@ -1,3 +1,1 @@
-#include "include/app.hpp"
-
-auto wmain() -> int { return app::run(); }
+auto wmain() -> int { return 0; }

@@ -15,5 +15,12 @@
         "nuget:Microsoft.Windows.ImplementationLibrary@1.0.240122.1",
         "gh:mthierman/cmake-modules@main",
         "gh:curl/curl@curl-8_8_0/curl-8.8.0.zip"
-    ]
+    ],
+    "packages2": {
+        "github": {
+            "stephenberry/glaze": "main"
+        },
+        "nuget": [],
+        "https": []
+    }
 }
